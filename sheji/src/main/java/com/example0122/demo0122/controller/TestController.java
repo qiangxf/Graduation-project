@@ -85,7 +85,17 @@ public class TestController {
 			return "0";
 		}
 	}
-
+	//删除农家乐信息
+	@RequestMapping("/delInfoById")
+	public String delInfoById(@RequestParam(value = "id") String id){
+		Integer infoid = Integer.parseInt(id);
+		Integer i = selectInfoMapper.delInfoById(infoid);
+		if (i>0){
+			return "1";
+		}else {
+			return "0";
+		}
+	}
 
 
 }

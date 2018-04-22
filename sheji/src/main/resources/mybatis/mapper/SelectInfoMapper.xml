@@ -23,4 +23,8 @@
 		#{info.product},#{info.picture});
 	</insert>
 
+	<delete id="delInfoById" parameterType="java.lang.Integer">
+		delete from info where infoid = #{infoid}
+	</delete>
+
 </mapper>

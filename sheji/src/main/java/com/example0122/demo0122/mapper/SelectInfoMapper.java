@@ -14,4 +14,6 @@ public interface SelectInfoMapper {
     Integer updateInfo(@Param("info") Info info);
     //新增操作
     Integer addInfo(@Param("info") Info info);
+    //删除操作
+    Integer delInfoById(Integer infoid);
 }

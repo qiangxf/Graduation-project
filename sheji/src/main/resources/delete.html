@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>删除界面</title>
+    <link rel="stylesheet" type="text/css" href="jquery-easyui-v1.5.4/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="jquery-easyui-v1.5.4/themes//icon.css">
+    <link rel="stylesheet" type="text/css" href="jquery-easyui-v1.5.4/demo/demo.css">
+    <script type="text/javascript" src="jquery-easyui-v1.5.4/jquery.min.js"></script>
+    <script type="text/javascript" src="jquery-easyui-v1.5.4/jquery.easyui.min.js"></script>
+</head>
+
+<script type="text/javascript">
+    function getValue() {
+        C1=window.location.href.split("?")[1];
+        C2=C1.split("=")[1];
+        htmlobj = $.ajax({
+            method:"POST",
+            url:"http://localhost:8080/delInfoById",
+            data:{id:C2},
+            dataType:"json",
+            success:function(data){
+                if(data='1'){
+                    window.location.href='index.html';
+                }else {
+                    alert("删除失败～！请联系管理员！")
+                }
+            },
+            error:function(){
+                alert("error");
+            }
+        });
+    }
+</script>
+<body onload="getValue()">
+
+</body>
+</html>
