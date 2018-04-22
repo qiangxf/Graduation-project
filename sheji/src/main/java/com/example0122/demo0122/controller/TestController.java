@@ -18,6 +18,7 @@ public class TestController {
 	@Resource
 	public SelectInfoMapper selectInfoMapper;
 
+	//查询所有农家乐信息
 	@RequestMapping("/selectInfo")
 	public List<Info> hello() {
 		List<Info> list = new ArrayList<>();
@@ -25,6 +26,7 @@ public class TestController {
 		return list;
 	}
 
+	//根据id查询农家乐信息
 	@RequestMapping("/selectInfoById")
 	public Info selectInfoById(@RequestParam(value = "id") Integer id){
 		Info info = new Info();
@@ -32,9 +34,56 @@ public class TestController {
 		return info;
 	}
 
+	//更新农家乐信息
 	@RequestMapping("/updateInfo")
-	public String updateInfo(@RequestParam(value = "userid") Integer id){
-		return "";
+	public String updateInfo(@RequestParam(value = "userid") Integer id,
+							 @RequestParam("name") String name,
+							 @RequestParam("location") String location,
+							 @RequestParam("keyword") String keyword,
+							 @RequestParam("type") String type,
+							 @RequestParam("distance") String distance,
+							 @RequestParam("product") String product,
+							 @RequestParam("picture") String picture){
+		Info info = new Info();
+		info.setInfoid(id);
+		info.setName(name);
+		info.setLocation(location);
+		info.setKeyword(keyword);
+		info.setType(type);
+		info.setDistance(distance);
+		info.setProduct(product);
+		info.setPicture(picture);
+		Integer i = selectInfoMapper.updateInfo(info);
+		if (i>0){
+			return "1";
+		}else {
+			return "0";
+		}
+	}
+
+	//新增农家乐信息
+	@RequestMapping("/addInfo")
+	public String addInfo(@RequestParam("name") String name,
+						  @RequestParam("location") String location,
+						  @RequestParam("keyword") String keyword,
+						  @RequestParam("type") String type,
+						  @RequestParam("distance") String distance,
+						  @RequestParam("product") String product,
+						  @RequestParam("picture") String picture){
+		Info info = new Info();
+		info.setName(name);
+		info.setLocation(location);
+		info.setKeyword(keyword);
+		info.setType(type);
+		info.setDistance(distance);
+		info.setProduct(product);
+		info.setPicture(picture);
+		Integer i = selectInfoMapper.addInfo(info);
+		if (i>0){
+			return "1";
+		}else {
+			return "0";
+		}
 	}
 
 

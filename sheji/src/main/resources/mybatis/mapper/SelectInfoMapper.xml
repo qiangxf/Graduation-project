@@ -11,4 +11,16 @@
 		select * from info where infoid = #{infoid};
 	</select>
 
+	<update id="updateInfo" parameterType="com.example0122.demo0122.entity.Info">
+		update info set name = #{info.name},location = #{info.location},keyword = #{info.keyword},
+		type = #{info.type},distance = #{info.distance},product = #{info.product},
+		picture = #{info.picture} where infoid = #{info.infoid};
+	</update>
+
+	<insert id="addInfo" parameterType="com.example0122.demo0122.entity.Info">
+		insert into info(name,location,keyword,type,distance,product,picture) values (
+		#{info.name},#{info.location},#{info.keyword},#{info.type},#{info.distance},
+		#{info.product},#{info.picture});
+	</insert>
+
 </mapper>

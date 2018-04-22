@@ -41,11 +41,16 @@
         function update() {
             $.ajax({
                type:"POST",
-               dataType:"String",
+               dataType:"json",
                 url:"http://localhost:8080/updateInfo",
                 data:$('#form1').serialize(),
                 success:function (data) {
-                    alert(data);
+                    if(data='1'){
+                        alert("修改成功～！");
+                        window.location.href='index.html';
+                    }else {
+                        alert("修改失败～！请联系管理员！")
+                    }
                 },
                 error:function () {
                     alert("error");

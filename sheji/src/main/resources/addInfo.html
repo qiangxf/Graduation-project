@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新增页面</title>
+    <link rel="stylesheet" type="text/css" href="jquery-easyui-v1.5.4/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="jquery-easyui-v1.5.4/themes//icon.css">
+    <link rel="stylesheet" type="text/css" href="jquery-easyui-v1.5.4/demo/demo.css">
+    <script type="text/javascript" src="jquery-easyui-v1.5.4/jquery.min.js"></script>
+    <script type="text/javascript" src="jquery-easyui-v1.5.4/jquery.easyui.min.js"></script>
+
+    <script type="text/javascript">
+        function addInfo() {
+            $.ajax({
+                type:"POST",
+                dataType:"json",
+                url:"http://localhost:8080/addInfo",
+                data:$('#form1').serialize(),
+                success:function (data) {
+                    if(data='1'){
+                        alert("新增成功～！");
+                        window.location.href='index.html';
+                    }else {
+                        alert("新增失败～！请联系管理员！")
+                    }
+                },
+                error:function () {
+                    alert("error");
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+<form action="#" method="post" id="form1">
+    <table>
+        <tr>
+            <td>name</td>
+            <td><input type="text" id="in2" name="name"></td>
+        </tr>
+        <tr>
+            <td>location</td>
+            <td><input type="text" id="in3" name="location"></td>
+        </tr>
+        <tr>
+            <td>keyword</td>
+            <td><input type="text" id="in4" name="keyword"></td>
+        </tr>
+        <tr>
+            <td>type</td>
+            <td><input type="text" id="in5" name="type"></td>
+        </tr>
+        <tr>
+            <td>distance</td>
+            <td><input type="text" id="in6" name="distance"></td>
+        </tr>
+        <tr>
+            <td>product</td>
+            <td><input type="text" id="in7" name="product"></td>
+        </tr>
+        <tr>
+            <td>picture</td>
+            <td><input type="text" id="in8" name="picture"></td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td><input type="button" value="提交" onclick="addInfo()"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
