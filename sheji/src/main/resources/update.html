@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改信息页面</title>
+
+    <link rel="stylesheet" type="text/css" href="jquery-easyui-v1.5.4/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="jquery-easyui-v1.5.4/themes//icon.css">
+    <link rel="stylesheet" type="text/css" href="jquery-easyui-v1.5.4/demo/demo.css">
+    <script type="text/javascript" src="jquery-easyui-v1.5.4/jquery.min.js"></script>
+    <script type="text/javascript" src="jquery-easyui-v1.5.4/jquery.easyui.min.js"></script>
+
+    <script type="text/javascript">
+        function getValue() {
+            C1=window.location.href.split("?")[1];
+            C2=C1.split("=")[1];
+
+            htmlobj = $.ajax({
+                method:"POST",
+                url:"http://localhost:8080/selectInfoById",
+                data:{id:C2},
+                dataType:"json",
+                success:function(data){
+                    document.getElementById("in1").value=data.infoid;
+                    document.getElementById("in2").value=data.name;
+                    document.getElementById("in3").value=data.location;
+                    document.getElementById("in4").value=data.keyword;
+                    document.getElementById("in5").value=data.type;
+                    document.getElementById("in6").value=data.distance;
+                    document.getElementById("in7").value=data.product;
+                    document.getElementById("in8").value=data.picture;
+                },
+                error:function(){
+                    alert("error");
+                }
+            });
+        }
+    </script>
+
+    <script type="text/javascript">
+        function update() {
+            $.ajax({
+               type:"POST",
+               dataType:"String",
+                url:"http://localhost:8080/updateInfo",
+                data:$('#form1').serialize(),
+                success:function (data) {
+                    alert(data);
+                },
+                error:function () {
+                    alert("error");
+                }
+            });
+        }
+    </script>
+</head>
+<body onload="getValue()">
+
+<form action="#" method="post" id="form1">
+    <table>
+        <tr>
+            <td>1</td>
+            <td><input type="text" id="in1" name="userid"/></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td><input type="text" id="in2" name="name"></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td><input type="text" id="in3" name="location"></td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td><input type="text" id="in4" name="keyword"></td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td><input type="text" id="in5" name="type"></td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td><input type="text" id="in6" name="distance"></td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td><input type="text" id="in7" name="product"></td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td><input type="text" id="in8" name="picture"></td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td><input type="button" value="提交" onclick="update()"></td>
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>

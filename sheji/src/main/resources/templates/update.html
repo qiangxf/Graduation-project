@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改信息页面</title>
+    <script type="text/javascript">
+        function getValue() {
+            C1=window.location.href.split("?")[1];
+            C2=C1.split("=")[1];
+            alert(C1);
+
+            function load() {
+                htmlobj = $.ajax({
+                    method:"POST",
+                    url:"http://localhost:8080/selectInfo",
+                    data:C1,
+                    dataType:"json",
+                    success:function(data){
+
+                    },
+                    error:function () {
+                        alert("error");
+                    }
+                });
+            }
+
+
+        }
+    </script>
+</head>
+<body onload="getValue()">
+
+
+</body>
+</html>

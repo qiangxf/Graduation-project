@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
+    <title>test</title>
+</head>
+
+<script type="text/javascript">
+    function load(){
+        location.href="localhost:8080/selectInfo1"
+    }
+</script>
+
+<body onload="load()">
+
+<div style="margin-left: 420px">
+    <table border="1" cellspacing="0">
+        <tr>
+            <td>
+                位置
+            </td>
+            <td>
+                <select>
+                    <option value="location">商洛学院</option>
+                    <option value="type">商洛市</option>
+                    <option value="distance">数计学院</option>
+                    <option value="product">辅导员办公室</option>
+                </select>
+            </td>
+            <td>
+                类型
+            </td>
+            <td>
+                <select>
+                    <option value="location">美食</option>
+                    <option value="type">风景</option>
+                    <option value="distance">舒适</option>
+                    <option value="product">宽敞</option>
+                </select>
+            </td>
+            <td>
+                距离
+            </td>
+            <td>
+                <select>
+                    <option value="location">1000米</option>
+                    <option value="type">2000米</option>
+                    <option value="distance">3000米</option>
+                    <option value="product">4000米</option>
+                </select>
+            </td>
+            <td>
+                产品特色
+            </td>
+            <td>
+                <select>
+                    <option value="location">好吃</option>
+                    <option value="type">便宜</option>
+                    <option value="distance">好看</option>
+                    <option value="product">香气扑鼻</option>
+                </select>
+            </td>
+            <td>
+                <button>搜索</button>
+            </td>
+        </tr>
+    </table>
+
+</div>
+
+<div style="margin-left: 420px;margin-top: 120px" >
+<table border='1' cellspacing='0'>
+    <tr>
+        <td>序号 </td>
+        <td>名称 </td>
+        <td>位置 </td>
+        <td>关键字 </td>
+        <td>类别 </td>
+        <td>距离 </td>
+        <td>特色产品 </td>
+        <td>图片展示 </td>
+        <td>操作1 </td>
+        <td>操作2 </td>
+    </tr>
+    <tr th:each="prod : ${list}">
+        <td th:text="${prod.getInfoid()}"></td>
+        <td th:text="${prod.getName()}"></td>
+        <td th:text="${prod.getLocation()}"></td>
+        <td th:text="${prod.getKeyword()}"></td>
+        <td th:text="${prod.getType()}"></td>
+        <td th:text="${prod.getDistance()}"></td>
+        <td th:text="${prod.getProduct()}"></td>
+        <td th:text="${prod.getPicture()}"></td>
+        <td><a th:href="@{/postid(infoid=${prod.getInfoid()})}">修改</a></td>
+        <td>删除</td>
+    </tr>
+</table>
+</div>
+
+</body>
+</html>
