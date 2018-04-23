@@ -8,7 +8,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 public class MyWebAppConfigurer extends WebMvcConfigurerAdapter {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/Users/qxf/IdeaProjects/Graduation-project/sheji/src/main/resources/**").addResourceLocations("classpath:");
+        registry.addResourceHandler("/root/sheji/**").addResourceLocations("classpath:");
         super.addResourceHandlers(registry);
     }
 }
