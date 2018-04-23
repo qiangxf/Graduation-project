@@ -2,11 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="jquery-easyui-v1.5.4/themes/default/easyui.css">
-    <link rel="stylesheet" type="text/css" href="jquery-easyui-v1.5.4/themes//icon.css">
-    <link rel="stylesheet" type="text/css" href="jquery-easyui-v1.5.4/demo/demo.css">
-    <script type="text/javascript" src="jquery-easyui-v1.5.4/jquery.min.js"></script>
-    <script type="text/javascript" src="jquery-easyui-v1.5.4/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
     <title>主页</title>
 </head>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
@@ -24,7 +20,7 @@
                     var ls = data[i];
                     html+= "<table border='1' cellspacing='0'><tr> <td>序号 </td> <td>名称 </td><td>位置 </td> <td>关键字 </td> <td>类别 </td> <td>距离 </td> <td>特色产品 </td> <td>图片展示 </td> <td>操作1 </td> <td>操作2 </td></tr> <tr> <td id='val'>"
                         +ls.infoid+"</td> <td>"+ls.name+"</td> <td>"+ ls.location+" </td> <td>"+ ls.keyword+"</td> <td>"+ls.type+"</td> <td>"+ ls.distance+" </td> <td>"+
-                        ls.product +"</td> <td>"+ ls.picture+" </td> <td><button onclick='postval("+ls.infoid+")'>修改</button> </td> <td> <button onclick='delval("+ls.infoid+")'>删除</button> </td> </tr> </table>";
+                        ls.product +"</td><td><img src='"+ ls.picture+"' height='40' width='40'/> </td><td><button onclick='postval("+ls.infoid+")'>修改</button> </td> <td> <button onclick='delval("+ls.infoid+")'>删除</button> </td> </tr> </table>";
                 }
                 //修改按钮的这个地方，我尝试过a href标签，但是发现不行，获取不到ls.infoid，这个问题我也不知道为什么。。
                 $("#ulul").html(html);
@@ -108,6 +104,7 @@
 <div id="ulul">
 
 </div>
+
 
 </body>
 </html>
