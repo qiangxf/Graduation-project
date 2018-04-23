@@ -83,7 +83,8 @@ public class TestController {
 		if(!file.isEmpty()){
 			try {
 				BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream(
-						new File("/Users/qxf/IdeaProjects/Graduation-project/sheji/src/main/resources/"+name+".jpg")
+//						new File("/Users/qxf/IdeaProjects/Graduation-project/sheji/src/main/resources/"+name+".jpg")
+						new File("/root/sheji/"+name+".jpg")
 				));
 				out.write(file.getBytes());
 				out.flush();
