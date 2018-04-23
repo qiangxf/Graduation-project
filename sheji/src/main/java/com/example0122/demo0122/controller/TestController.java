@@ -84,7 +84,7 @@ public class TestController {
 			try {
 				BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream(
 //						new File("/Users/qxf/IdeaProjects/Graduation-project/sheji/src/main/resources/"+name+".jpg")
-						new File("/root/sheji/"+name+".jpg")
+						new File("/root/apache-tomcat-7.0.86/webapps/ROOT/"+name+".jpg")
 				));
 				out.write(file.getBytes());
 				out.flush();
